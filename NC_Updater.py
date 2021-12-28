@@ -4,7 +4,8 @@ import os
 
 #https://www.namecheap.com/support/knowledgebase/article.aspx/29/11/how-to-dynamically-update-the-hosts-ip-with-an-http-request/
 
-dotenv.load_dotenv(dotenv.find_dotenv()) #finds .env file in the same directory of this script, and loads it
+dotenv_file = dotenv.find_dotenv()
+dotenv.load_dotenv(dotenv_file) #finds .env file in the same directory of this script, and loads it
 
 old_ip = os.environ["PUBLIC_IP"]
 new_ip = requests.get('http://ipinfo.io/json').json()['ip'] #checks your current public ip, you can't see your public ip locally
