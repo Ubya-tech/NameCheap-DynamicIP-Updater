@@ -8,7 +8,7 @@ dotenv_file = dotenv.find_dotenv()
 dotenv.load_dotenv(dotenv_file) #finds .env file in the same directory of this script, and loads it
 
 old_ip = os.environ["PUBLIC_IP"]
-new_ip = requests.get('http://ipinfo.io/json').json()['ip'] #checks your current public ip, you can't see your public ip locally
+new_ip = requests.get('https://api.ipify.org?format=json').json()['ip'] #checks your current public ip, you can't see your public ip locally
 
 if old_ip != new_ip:
         payload = {
